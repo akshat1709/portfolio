@@ -1,0 +1,71 @@
+@media screen and (max-width:600px){
+    .navbar a:not(:first-child) {
+        display: none;
+    }
+
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+
+    .navbar.responsive a.icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .navbar.responsive a {
+        display: block;
+        text-align: left;
+    }
+    .infoContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .devInfo {
+        text-align: center;
+    }
+
+    .devPic img {
+        height: auto;
+        width: 100%;
+    }
+    #aboutContainer {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 275px;
+        height: 825px;
+        width: 100%;
+    }
+
+    .myInfo,
+    .myskills {
+        width: 100%;
+    }
+    #formContainer {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 100px;
+    }
+
+    .contactform {
+        width: 100%;
+    }
+    .container{
+        margin-top: 176px;
+    }
+    .myskills{
+        padding-top: 77px;
+    }
+    .connect{
+        width: 100%;
+    }
+    .connect h1{
+        padding-top: 25px;
+    }
+    .vl{
+        display: none;
+    }
+}
