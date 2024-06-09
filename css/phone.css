@@ -28,13 +28,13 @@
     }
 
     .devPic img {
-        height: auto;
+        height: 297px;
         width: 100%;
     }
     #aboutContainer {
         flex-direction: column;
         align-items: center;
-        margin-top: 275px;
+        margin-top: 312px;
         height: 825px;
         width: 100%;
     }
@@ -44,6 +44,7 @@
         width: 100%;
     }
     #formContainer {
+        height: auto;
         flex-direction: column;
         align-items: center;
         width: 100%;
@@ -54,7 +55,7 @@
         width: 100%;
     }
     .container{
-        margin-top: 176px;
+        margin-top: 25px;
     }
     .myskills{
         padding-top: 77px;
@@ -63,6 +64,7 @@
         width: 100%;
     }
     .connect h1{
+        margin-top: 58px;
         padding-top: 25px;
     }
     .vl{
