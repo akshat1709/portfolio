@@ -5,6 +5,7 @@ const phpknowledge = 65;
 const sqlknowledge = 75;
 const reactknowledge = 70;
 const nodeknowledge = 75;
+const office365Knowledge = 98; 
 
 
 document.getElementById("htmlBar").style.width = htmlKnowledge + "%";
@@ -27,3 +28,6 @@ document.getElementById("reactBar").innerHTML = reactknowledge + "%";
 
 document.getElementById("nodeBar").style.width = nodeknowledge  + "%";
 document.getElementById("nodeBar").innerHTML = nodeknowledge + "%";
+
+document.getElementById("office365Bar").style.width = office365Knowledge + "%";
+document.getElementById("office365Bar").innerHTML = office365Knowledge + "%";
