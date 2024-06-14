@@ -6,6 +6,7 @@ const sqlknowledge = 75;
 const reactknowledge = 70;
 const nodeknowledge = 75;
 
+
 document.getElementById("htmlBar").style.width = htmlKnowledge + "%";
 document.getElementById("htmlBar").innerHTML = htmlKnowledge + "%";
 
