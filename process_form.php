@@ -1,53 +1,40 @@
 <?php
-// Database connection parameters
-$servername = "127.0.0.1";
-$username = "akshat1709";
-$password = "";
-$dbname = "contact_form";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Configuration
+$to_email = 'guptaakshat1709@gmail.com'; // Replace with your email address
+$subject = 'Contact Form Submission';
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Get the form data
+$name = $_POST['clientemail'];
+$message = $_POST['clientmessage'];
+$is_client = $_POST['isclient'] ?? false;
 
-// Process form data
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["clientemail"];
-    $phone = $_POST["clientphone"];
-    $collaborate = isset($_POST["isclient"]) ? 1 : 0;
+// Validate the form data
+if (empty($name) || empty($message)) {
+    $error = 'Please fill in all the fields.';
+} elseif (!filter_var($name, FILTER_VALIDATE_EMAIL)) {
+    $error = 'Invalid email address.';
+} else {
+    // Send the email
+    $body = "Name: $name\n";
+    $body .= "Message: $message\n";
+    $body .= "Is Client: " . ($is_client ? 'Yes' : 'No');
 
-    // Insert data into the database
-    $sql = "INSERT INTO contacts (email, phone, collaborate) VALUES ('$email', '$phone', $collaborate)";
-    if ($conn->query($sql) === TRUE) {
-        // Send email notification
-        $to = "guptaakshat1709@gmail.com"; 
-        $subject = "New Contact Form Submission";
-        $message = "Someone tried contacting you:\n\n";
-        $message .= "Email: $email\n";
-        $message .= "Phone: $phone\n";
-        $message .= "Collaborate: " . ($collaborate ? "Yes" : "No") . "\n";
+    $headers = "From: $name\r\n";
+    $headers .= "Reply-To: $name\r\n";
 
-        $headers = "From: $email\r\n";
-        $headers .= "Reply-To: $email\r\n";
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-        mail($to, $subject, $message, $headers);
-
-        echo "Form submitted successfully. You will receive an email notification.";
+    if (mail($to_email, $subject, $body, $headers)) {
+        $success = 'Thank you for contacting us!';
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        $error = 'Error sending email.';
     }
 }
 
-// Close connection
-$conn->close();
+// Output the result
+if (isset($error)) {
+    echo "<p style='color: red;'>$error</p>";
+} elseif (isset($success)) {
+    echo "<p style='color: green;'>$success</p>";
+}
 
-// Enable CORS
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
 ?>
