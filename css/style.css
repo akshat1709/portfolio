@@ -214,7 +214,7 @@
 
 .clientmessage {
     margin-bottom: 20px;
-    align-items: center ;
+    font-family: 'Playfair Display', serif;
 }
 
 .clientmessage textarea {
